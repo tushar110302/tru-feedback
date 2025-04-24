@@ -9,6 +9,7 @@ export async function POST(request: Request){
         const {username, email, password} = await request.json();
 
         const existingUserByUsername = await UserModel.findOne({username, isVerified:true});
+        
         if(existingUserByUsername){
             return Response.json({
                 success: false,
